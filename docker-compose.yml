@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  hr_bots:
+    build: .
+    container_name: hr_system_container
+    network_mode: "bridge"
+    dns:
+      - 1.1.1.1
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    volumes:
+      - ./OSN_HR/db:/app/OSN_HR/db
+      - ./OSN_HR/photos:/app/OSN_HR/photos
+      - ./bot_admin:/app/bot_admin

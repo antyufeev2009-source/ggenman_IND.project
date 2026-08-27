@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # Первый бот
+  bot_first:
+    build: .
+    container_name: tg_bot
+    network_mode: "bridge"
+    dns:
+      - 1.1.1.1
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+  # Второй бот
+  bot_second:
+    build: /home/lggenman/bots/admin_hr_bot
+    container_name: tg_bot_2
+    network_mode: "bridge"
+    dns:
+      - 1.1.1.1
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+

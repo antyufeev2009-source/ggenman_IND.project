@@ -1,0 +1,4 @@
+aiogram
+aiofiles
+aiohttp
+aiohttp_socks
